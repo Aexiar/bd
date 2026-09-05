@@ -16,7 +16,7 @@ master:
             # EdgeOne 部署重试，最多 3 次
             for attempt in 1 2 3; do
               echo "=== EdgeOne 部署第 $attempt 次尝试 ==="
-              if npx edgeone pages deploy ./docs/.vitepress/dist \
+              if npx edgeone@1.0.34 pages deploy ./docs/.vitepress/dist \
                 --name vitepress-bd \
                 --token $EDGEONE_API_TOKEN --json ; then
                 echo "=== 部署成功 ==="
