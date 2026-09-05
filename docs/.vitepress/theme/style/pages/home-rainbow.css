@@ -1,0 +1,82 @@
+@property --data-primary {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #2563eb;
+}
+
+@property --data-secondary {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #06b6d4;
+}
+
+.is-home-page {
+    --data-primary: #2563eb;
+    --data-secondary: #06b6d4;
+    --vp-c-brand-1: #2563eb;
+    --vp-c-brand-2: #0e7490;
+    --vp-c-brand-3: #0891b2;
+    animation: data-palette 18s ease-in-out infinite alternate;
+}
+
+@keyframes data-palette {
+    0% {
+        --data-primary: #2563eb;
+        --data-secondary: #06b6d4;
+    }
+
+    50% {
+        --data-primary: #4f46e5;
+        --data-secondary: #0284c7;
+    }
+
+    100% {
+        --data-primary: #7c3aed;
+        --data-secondary: #0891b2;
+    }
+}
+
+:root {
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: linear-gradient(
+        115deg,
+        var(--data-secondary) 8%,
+        var(--data-primary) 88%
+    );
+    --vp-home-hero-image-background-image: linear-gradient(
+        135deg,
+        var(--data-secondary) 4%,
+        #60a5fa 52%,
+        var(--data-primary) 96%
+    );
+    --vp-home-hero-image-filter: blur(72px);
+}
+
+.VPHero .image-bg {
+    opacity: 0.58;
+    filter: blur(72px) saturate(0.86) !important;
+    transform: translate(-50%, -50%) scale(0.92);
+}
+
+.VPImage.image-src {
+    border-radius: 50%;
+}
+
+.dark .VPHero .image-bg {
+    opacity: 0.66;
+    filter: blur(78px) saturate(0.92) !important;
+}
+
+@media (max-width: 768px) {
+    .VPHero .image-bg {
+        opacity: 0.48;
+        filter: blur(56px) saturate(0.82) !important;
+        transform: translate(-50%, -50%) scale(0.84);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .is-home-page {
+        animation: none;
+    }
+}

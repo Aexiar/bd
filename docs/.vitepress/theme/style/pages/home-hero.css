@@ -1,0 +1,66 @@
+.VPHero .image-bg {
+    display: block !important;
+    filter: blur(50px) !important;
+    border-radius: 50% !important;
+    mix-blend-mode: normal;
+}
+
+.VPImage.image-src {
+    width: 200px;
+    border-radius: 50%;
+}
+
+.is-home-page .VPHero .main {
+    max-width: 650px;
+}
+
+.is-home-page .VPHero .name {
+    margin-bottom: 10px;
+    letter-spacing: -0.035em;
+}
+
+.is-home-page .VPHero .text {
+    max-width: 650px;
+    font-size: clamp(34px, 4vw, 52px);
+    line-height: 1.16;
+    letter-spacing: -0.04em;
+}
+
+.is-home-page .VPHero .tagline {
+    max-width: 610px;
+    padding-top: 20px;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.is-home-page .VPHero .actions {
+    padding-top: 30px;
+}
+
+.is-home-page .VPHero .VPButton {
+    min-width: 122px;
+    border-radius: 12px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.is-home-page .VPHero .VPButton.brand {
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--vp-c-brand-2), var(--vp-c-brand-1));
+    box-shadow: 0 8px 24px rgba(24, 121, 78, 0.2);
+}
+
+.is-home-page .VPHero .VPButton:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+    .is-home-page .VPHero .text {
+        font-size: 34px;
+    }
+
+    .is-home-page .VPHero .tagline {
+        padding-top: 16px;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+}

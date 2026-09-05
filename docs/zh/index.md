@@ -17,12 +17,11 @@ head:
       content: 许大仙前端、Java、大数据、云原生
   - - meta
     - name: keywords
-      content: 许大仙,许大仙的博客
+      content: 许大仙，许大仙的博客
 
 hero:
   name: "大数据"
-  text: "大、全、细"
-  tagline: "欢迎来到我的博客🎉"
+  text: "海量、多样、实时"
   image:  # text 和 tagline 区域旁的图片
     src: /logo.svg
     alt: "许大仙"
@@ -30,20 +29,20 @@ hero:
   actions:
     - theme: brand
       text: "🏠首页"
-      link: "/"      
+      link: "/"
     - theme: alt
       text: "🎉快速开始"
-      link: "/guide/"          
+      link: "/guide"
 
 # 按钮下方的描述
 features:
-  - icon: 🧠
-    title: "学习思路"
-    details: "学习思路就这么几条：模仿、遍历、分治、动态规划、……"
-  - icon: ✍️
-    title: "学习手法"
-    details: "学习手法就这么几种：缓存、索引、信号/事件、回调/消息循环/dispatcher、……"
-  - icon: 🚨
-    title: "注意事项"
-    details: "注意事项就这么几点：边界值、等价类、数据完整性原子性、死锁、空转、……"
+  - icon: 🗄️
+    title: "数据底座"
+    details: "从 Linux、Java 和数据库开始，理解大数据平台赖以运行的基础能力。"
+  - icon: ⚡
+    title: "批流计算"
+    details: "串联 Hadoop、Spark 与 Flink，掌握离线计算和实时处理的核心原理。"
+  - icon: 🧭
+    title: "生态实践"
+    details: "覆盖采集、存储、计算、调度与治理，沉淀可复用的大数据工程经验。"
 ---
