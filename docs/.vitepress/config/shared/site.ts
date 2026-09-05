@@ -2,8 +2,8 @@ import type { HeadConfig } from "vitepress";
 import { VITE_BASE_URL } from "./context";
 
 export const head: HeadConfig[] = [
-    ["link", { rel: "shortcut icon", href: `${VITE_BASE_URL}logo.svg` }],
-    ["link", { rel: "icon", href: `${VITE_BASE_URL}logo.svg`, type: "image/svg+xml" }],
+    ["link", { rel: "shortcut icon", href: `${VITE_BASE_URL}favicon.ico` }],
+    ["link", { rel: "icon", href: `${VITE_BASE_URL}favicon.ico`, type: "image/x-icon" }],
     ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
     ["link", { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "" }],
     ["link", {
