@@ -3,7 +3,7 @@ import { VITE_BASE_URL } from "./context";
 
 const commonSidebarOptions: VitePressSidebarOptions = {
     documentRootPath: "docs",
-    debugPrint: true,
+    debugPrint: false,
     basePath: VITE_BASE_URL,
     collapsed: true,
     excludeByGlobPattern: ["assets", "public", "index.md", "about"],

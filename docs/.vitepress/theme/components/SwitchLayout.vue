@@ -60,7 +60,6 @@ import SidebarTooltip from './SidebarTooltip.vue'
 
 const {isDark, theme, frontmatter} = useData();
 
-console.log('@@@', theme.value)
 
 const enableTransitions = () =>
     "startViewTransition" in document &&

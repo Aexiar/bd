@@ -1,7 +1,7 @@
 // .vitepress/theme/index.ts
 import DefaultTheme from 'vitepress/theme'
 import ArticleMetadata from "./components/ArticleMetadata.vue"
-import { h, onMounted, watch } from 'vue'
+import { defineAsyncComponent, h, onMounted, watch } from 'vue'
 import type { EnhanceAppContext, Theme } from 'vitepress'
 import { inBrowser, useData, useRoute } from 'vitepress'
 import Confetti from "./components/Confetti.vue"
@@ -13,10 +13,7 @@ import { NProgress } from 'nprogress-v2/dist/index.js'
 import { NolebaseInlineLinkPreviewPlugin, } from '@nolebase/vitepress-plugin-inline-link-preview/client'
 import 'virtual:group-icons.css'
 import './style/index.css'
-import { initComponent } from "vitepress-plugin-legend/component"
-import {
-  AntDesignContainer,
-} from '@vitepress-demo-preview/component'
+import { registerLazyDiagrams } from './utils/lazy-diagrams'
 
 // 彩虹背景动画样式
 function updateHomePageStyle(value: boolean) {
@@ -28,7 +25,7 @@ export default {
     return h(AuthGate, null, { default: () => h(SwitchLayout) })
   },
   enhanceApp({ app, router }: EnhanceAppContext) {
-    initComponent(app)
+    registerLazyDiagrams(app)
     // 彩虹背景动画样式
     if (typeof window !== 'undefined') {
       watch(
@@ -48,7 +45,8 @@ export default {
     app.component('TypeIt', TypeIt)
     // The plugin's recursive Vue Plugin generic exceeds TypeScript's comparison depth.
     app.use(NolebaseInlineLinkPreviewPlugin as any)
-    app.component('demo-preview', AntDesignContainer)
+    app.component('demo-preview', defineAsyncComponent(() =>
+      import('@vitepress-demo-preview/component').then(module => module.AntDesignContainer)))
 
     if (inBrowser) {
       NProgress.configure({ showSpinner: false })

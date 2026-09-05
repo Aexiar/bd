@@ -1,4 +1,5 @@
 import terser from "@rollup/plugin-terser";
+import { createRequire } from 'node:module';
 import AutoFrontmatter from "vitepress-plugin-auto-frontmatter";
 import { AnnouncementPlugin } from "vitepress-plugin-announcement";
 import { groupIconVitePlugin } from "vitepress-plugin-group-icons";
@@ -9,8 +10,17 @@ import { customIcon } from "../../theme/utils/customIcon";
 import { IndexPermalinkCompat } from "../../theme/plugins/Index-permalink-compat-plugin";
 import { demoAlias } from "./context";
 
+// Resolve through Legend's own dependencies, including pnpm's isolated layout.
+const legendRequire = createRequire(createRequire(import.meta.url).resolve('vitepress-plugin-legend'));
+const diagramAliases = Object.fromEntries(
+    ['markmap', 'mermaid', 'infographic', 'plantuml'].map(name => [
+        `@legend/${name}`,
+        legendRequire.resolve(`vitepress-${name}-preview/component`).replace(/\.cjs$/, '.js'),
+    ]),
+);
+
 export const viteConfig = {
-    resolve: { alias: demoAlias },
+    resolve: { alias: { ...demoAlias, ...diagramAliases } },
     build: { chunkSizeWarningLimit: 2000 },
     ssr: {
         noExternal: [
