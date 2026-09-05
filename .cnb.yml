@@ -6,6 +6,7 @@ master:
           image: node:24
           script: |
             npm install -g pnpm@10
+            pnpm install
             pnpm run docs:build
         - name: 部署到 Pages
           image: node:24
