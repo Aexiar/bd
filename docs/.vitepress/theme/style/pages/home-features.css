@@ -2,19 +2,31 @@
   padding-top: 36px;
 }
 
+.is-home-page .VPFeature {
+  border-color: transparent;
+  border-radius: 16px;
+  background: transparent;
+  transition: transform 0.28s ease;
+}
+
+.is-home-page .VPFeature:hover {
+  transform: translateY(-5px);
+}
+
 .is-home-page .VPFeature .box {
   position: relative;
   display: grid;
   grid-template-columns: 52px 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 52px auto;
   column-gap: 16px;
+  row-gap: 15px;
   height: 100%;
-  padding: 26px;
+  padding: 24px;
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 15%, var(--vp-c-divider));
-  border-radius: 18px;
-  background: color-mix(in srgb, var(--vp-c-bg-soft) 88%, transparent);
-  box-shadow: 0 12px 32px rgba(25, 60, 45, 0.07);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--vp-c-bg-soft) 92%, transparent);
+  box-shadow: 0 10px 28px rgba(30, 64, 175, 0.07);
   backdrop-filter: blur(10px);
   transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
 }
@@ -26,19 +38,17 @@
   width: 130px;
   height: 130px;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--vp-c-brand-2) 10%, transparent);
+  background: color-mix(in srgb, var(--vp-c-brand-2) 8%, transparent);
   content: "";
   pointer-events: none;
 }
 
-.is-home-page .VPFeature .box:hover {
-  transform: translateY(-5px);
+.is-home-page .VPFeature:hover .box {
   border-color: color-mix(in srgb, var(--vp-c-brand-1) 42%, var(--vp-c-divider));
-  box-shadow: 0 18px 42px rgba(25, 100, 70, 0.13);
+  box-shadow: 0 16px 38px rgba(37, 99, 235, 0.13);
 }
 
 .is-home-page .VPFeature .icon {
-  grid-row: 1 / 3;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -59,11 +69,11 @@
 }
 
 .is-home-page .VPFeature .details {
-  grid-column: 2;
-  margin: 12px 0 0;
+  grid-column: 1 / -1;
+  margin: 0;
   color: var(--vp-c-text-2);
   font-size: 14px;
-  line-height: 1.75;
+  line-height: 1.7;
 }
 
 .dark.is-home-page .VPFeature .box {
@@ -78,5 +88,6 @@
 
   .is-home-page .VPFeature .box {
     padding: 22px;
+    row-gap: 14px;
   }
 }
