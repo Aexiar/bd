@@ -6,8 +6,12 @@ master:
           image: node:24
           script: |
             npm install -g pnpm@10
-            pnpm install
+            npm config set shamefully-hoist true
+            pnpm config set public-hoist-pattern *
+            pnpm install --no-frozen-lockfile
             pnpm run docs:build
         - name: 部署到 Pages
           image: node:24
-          script: npx edgeone@1.5.9 pages deploy ./docs/.vitepress/dist --name vitepress-bd --token $EDGEONE_API_TOKEN
+          script: |
+             ls -la ./docs/.vitepress/dist 
+             npx edgeone@1.5.9 pages deploy ./docs/.vitepress/dist --name vitepress-bd --token $EDGEONE_API_TOKEN
