@@ -13,5 +13,4 @@ master:
         - name: 部署到 Pages
           image: node:24
           script: |
-             ls -la ./docs/.vitepress/dist 
              npx edgeone@1.5.9 pages deploy ./docs/.vitepress/dist --name vitepress-bd --token $EDGEONE_API_TOKEN
