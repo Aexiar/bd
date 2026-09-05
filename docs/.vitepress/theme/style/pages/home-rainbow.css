@@ -10,7 +10,7 @@
     initial-value: #06b6d4;
 }
 
-.is-home-page {
+.is-home-page:not(:has(.data-home)) {
     --data-primary: #2563eb;
     --data-secondary: #06b6d4;
     --vp-c-brand-1: #2563eb;
@@ -76,7 +76,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .is-home-page {
+    .is-home-page:not(:has(.data-home)) {
         animation: none;
     }
 }
