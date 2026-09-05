@@ -21,11 +21,14 @@
     <template #nav-screen-content-after>
       <NolebaseEnhancedReadabilitiesScreenMenu/>
     </template>
-    <template #home-features-after>
+    <template #home-hero-before>
+      <DataHome v-if="frontmatter.bigDataHome" />
+    </template>
+    <template v-if="!frontmatter.bigDataHome" #home-features-after>
       <Confetti/>
       <HomeUnderline/>
     </template>
-    <template #home-hero-info-after>
+    <template v-if="!frontmatter.bigDataHome" #home-hero-info-after>
       <TypeIt
           strings="汇聚海量数据，让实时计算驱动洞察。"
           :options="{ speed: 110, breakLines: false }"
@@ -37,6 +40,7 @@
 
 <script lang="ts" setup>
 import BackTop from "./BackTop.vue";
+import DataHome from './DataHome.vue';
 import ArticleMetadata from "./ArticleMetadata.vue";
 import GiscusComment from './GiscusComment.vue'
 import {useData} from "vitepress";
@@ -54,7 +58,7 @@ import {
 
 import SidebarTooltip from './SidebarTooltip.vue'
 
-const {isDark, theme} = useData();
+const {isDark, theme, frontmatter} = useData();
 
 console.log('@@@', theme.value)
 
